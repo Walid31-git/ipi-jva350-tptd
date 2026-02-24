@@ -11,7 +11,7 @@ import java.util.Objects;
 @Entity
 public class SalarieAideADomicile {
 
-    public static float CONGES_PAYES_ACQUIS_PAR_MOIS = 2.5f;
+    public static final float congesPayesAcquisParMois= 2.5f;
 
 
     @Id
@@ -20,7 +20,7 @@ public class SalarieAideADomicile {
 
     private String nom;
 
-    public static List<DayOfWeek> joursHabituellementTravailles = new ArrayList<DayOfWeek>();
+    public static final List<DayOfWeek> joursHabituellementTravailles = new ArrayList<DayOfWeek>();
 
     static {
         joursHabituellementTravailles.add(DayOfWeek.MONDAY);

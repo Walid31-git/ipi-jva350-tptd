@@ -7,6 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.junit.jupiter.api.BeforeEach;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
@@ -15,6 +16,10 @@ class SalarieAideADomicileRepositoryTest {
     @Autowired
     private SalarieAideADomicileRepository repository; // injection du repository
 
+    @BeforeEach
+    public void before() {
+        repository.deleteAll();
+    }
     @Test
     void testFindByNom_shouldReturnSalarie() {
         // Création et sauvegarde d'un salarié
