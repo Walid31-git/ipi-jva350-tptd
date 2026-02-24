@@ -130,13 +130,14 @@ public final class Entreprise {
     }
 
     public static boolean estJourFerie(LocalDate jour) {
-        int monEntier = (int) Entreprise.joursFeries(jour).stream().filter(d ->
-                d.equals(jour)).count();
-        int test = bissextile(jour.getYear()) ? 1 : 0;
-        if (test != 0 && !(monEntier > 1)) {
-            test--;
+        if (jour == null) return false;
+        List<LocalDate> jours = joursFeries(jour);
+        for (LocalDate j : jours) {
+            if (j.isEqual(jour)) {
+                return true;
+            }
         }
-        return monEntier != test;
+        return false;
     }
 
     /**
